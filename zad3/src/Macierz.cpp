@@ -16,7 +16,7 @@ Macierz::Macierz(Wektor A, Wektor B, Wektor C){
 
 /*Operacje matematyczne*/
 
-const Macierz Macierz::operator + (const Macierz & M) const{
+Macierz Macierz::operator + (const Macierz & M) const{
   Macierz Wynik;
   for(int i=0; i<ROZMIAR; i++){ 
     Wynik[i]=tab[i]+M[i];
@@ -24,14 +24,14 @@ const Macierz Macierz::operator + (const Macierz & M) const{
   return Wynik;
 }
 
-const Macierz Macierz::operator - (const Macierz &M) const{
+Macierz Macierz::operator - (const Macierz &M) const{
   MacierzKw Wynik;
   for (int i=0; i<ROZMIAR; i++)
     Wynik [i] = tab[i]-M[i];
   return Wynik;
 }
 
-const Macierz Macierz::operator *(const Macierz &M) const {
+Macierz Macierz::operator *(const Macierz &M) const {
   Macierz Wynik;
   Macierz TranspM = M.transponuj();
   for (int i=0; i < ROZMIAR; i++)
@@ -40,26 +40,34 @@ const Macierz Macierz::operator *(const Macierz &M) const {
   return Wynik;
 }
 
-const Wektor Macierz::operator *(const Wektor &W) const {
+Wektor Macierz::operator *(const Wektor &W) const {
   Wektor Wynik;
   for (int i=0; i<ROZMIAR; i++)
     Wynik[i] = tab[i]*W;
   return Wynik;
 }
 
-const Macierz Macierz::operator *(double l, const Macierz &M) {
-  MacierzKw Wynik;
+Macierz Macierz::operator *(double l, const Macierz &M) {
+  Macierz Wynik;
   for (int i=0; i<ROZMIAR; i++)
     Wynik[i] = M[i]*l;
   return Wynik;
 }
 
-const Macierz Macierz::transponuj() const {
+Macierz Macierz::transponuj() const {
   MacierzKw Transp;
   for (int i=0; i<ROZMIAR; i++)
     for (int j=0; j<ROZMIAR; j++)
       Transp[j][i] = tab[i][j];
   return Transp;
+}
+
+Macierz Macierz::zmien_kolumne(int kolum, Wektor wek){
+  Macierz mpom;
+  mpom = transponuj();
+  mpom[kolum] = wek;
+  mpom = mpom.transponuj();
+  return mpom;
 }
 
  double Macierz::wyznacznik()const{

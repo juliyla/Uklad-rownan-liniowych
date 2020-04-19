@@ -10,11 +10,11 @@ public:
   Wektor();
   Wektor(double tab[]);
  
-  const Wektor & operator + (const Wektor &W2) const;
-  const Wektor & operator - (const Wektor &W2) const;
+  Wektor operator + (const Wektor &W2) const;
+  Wektor operator - (const Wektor &W2) const;
   double operator * (const Wektor &W2) const;
-  const Wektor & operator * (double l) const;
-  const Wektor & operator / (double l) const;
+  Wektor operator * (double l) const;
+  Wektor operator / (double l) const;
   Wektor operator * (double l,const Wektor &W2);
     
   double dlugosc() const;

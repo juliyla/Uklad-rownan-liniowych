@@ -20,28 +20,28 @@ Wektor::Wektor(double tab[])
 
 /*Operacje matematyczne*/
 
-const Wektor Wektor::operator + (const Wektor &W2) const {
+Wektor Wektor::operator + (const Wektor &W2) const {
   Wektor W3;
   for (int i=0; i<ROZMIAR; i++)
     W3[i] = tab[i] + W2[i];
   return W3;
 } 
 
-const Wektor Wektor::operator - (const Wektor &W2) const {
+Wektor Wektor::operator - (const Wektor &W2) const {
   Wektor Wynik;
   for (int i=0; i<ROZMIAR; i++)
     Wynik[i] = tab[i] - W2[i];
   return Wynik;
 } 
     
-const double Wektor::operator * (const Wektor &W2) const {
+double Wektor::operator * (const Wektor &W2) const {
   double Wynik = 0;
   for (int i=0; i<ROZMIAR; i++)
     Wynik += tab[i] * W2[i];
   return Wynik;
 }
 
-const Wektor Wektor::operator * (double l2) const{
+Wektor Wektor::operator * (double l2) const{
   Wektor Wynik;
   for (int i=0; i<ROZMIAR; i++)
     Wynik[i] = tab[i] * l2;
@@ -55,7 +55,7 @@ Wektor operator * (double l1,const Wektor &W2) {
   return Wynik;
 } 
 
-const Wektor Wektor::operator / (double l2) const{
+Wektor Wektor::operator / (double l2) const{
   Wektor Wynik;
   if(l2 == 0){
         std::cerr << "Nie wolno dzielic przez zero!" << std::endl;

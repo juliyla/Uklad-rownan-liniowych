@@ -3,22 +3,18 @@
 #include "Macierz.hh"
 #include "UkladRownanLiniowych.hh"
 
-
-
 using namespace std;
-
-/*
- * Tu definiujemy pozostale funkcje.
- * Lepiej jednak stworzyc dodatkowy modul
- * i tam je umiescic. Ten przyklad pokazuje
- * jedynie absolutne minimum.
- */
-
 
 int main()
 {
-  UkladRownanLiniowych   UklRown;   // To tylko przykladowe definicje zmiennej
-
   
-  cout << endl << " Start programu " << endl << endl;
+    ifstream plik;
+    plik.open("plik"); 
+    UkladRownanLiniowych   UklRown;
+    plik >> UklRown;
+    cout << UklRown << endl;
+    plik.close();
+    return 0;
+  
+  
 }
