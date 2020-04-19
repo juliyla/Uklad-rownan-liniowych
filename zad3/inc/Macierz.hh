@@ -13,14 +13,13 @@ class Macierz {
 
   double wyznacznik() const;
   Macierz zmien_kolumne(int kolum, Wektor wek);
-  const Macierz & transponuj() const;
-  /*const Macierz & odwroc() const;*/
+  Macierz transponuj() const;
 
   Macierz operator + (const Macierz & M) const;
   Macierz operator - (const Macierz & M) const;
   Macierz operator * (const Macierz & M) const;
   Wektor operator * (const Wektor & W) const;
-  Macierz operator * (double l); const;
+  Macierz operator * (const double l) const;
 
   bool operator == (const Macierz & M) const;
   bool operator != (const Macierz & M) const;

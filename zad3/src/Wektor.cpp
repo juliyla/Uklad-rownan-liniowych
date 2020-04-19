@@ -2,6 +2,8 @@
 #include "rozmiar.h"
 #include <iostream>
 #include <cmath>
+#include <algorithm>
+using namespace std;
 
 /*Konstruktory*/
 
@@ -48,12 +50,6 @@ Wektor Wektor::operator * (double l2) const{
   return Wynik;
 }
 
-Wektor operator * (double l1,const Wektor &W2) {
-  Wektor Wynik;
-  for (int i=0; i<ROZMIAR; i++)
-    Wynik[i] = l1 * W2[i];
-  return Wynik;
-} 
 
 Wektor Wektor::operator / (double l2) const{
   Wektor Wynik;

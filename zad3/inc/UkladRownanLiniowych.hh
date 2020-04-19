@@ -14,16 +14,13 @@ class UkladRownanLiniowych {
 
 public:
   UkladRownanLiniowych(): A(), b() {};
-  UkladRownanLiniowych(Macierz AA, Wektor bb) : A(AA), B(bb) {} ;   
+  UkladRownanLiniowych(Macierz AA, Wektor bb) : A(AA), b(bb) {} ;   
 
-  const Macierz & get_A() const;
-  const Wektor & get_b() const;
-  Macierz & get_A();
-  Wektor & get_b();
- 
+  const Macierz & get_A() const {return A;};
+  const Wektor & get_b() const {return b;};
   
   Wektor Oblicz() const;
-  Wektor blad() const;
+  Wektor w_bledu() const;
   double dl_bledu() const;
 };
 

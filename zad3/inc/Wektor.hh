@@ -4,6 +4,8 @@
 #include "rozmiar.h"
 #include <iostream>
 
+using namespace std;
+
 class Wektor {
   double tab[ROZMIAR];
 public:
@@ -15,7 +17,6 @@ public:
   double operator * (const Wektor &W2) const;
   Wektor operator * (double l) const;
   Wektor operator / (double l) const;
-  Wektor operator * (double l,const Wektor &W2);
     
   double dlugosc() const;
 

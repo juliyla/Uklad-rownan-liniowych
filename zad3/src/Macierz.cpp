@@ -1,4 +1,5 @@
 #include "Macierz.hh"
+using namespace std;
 
 /*Konstruktory*/
 
@@ -25,7 +26,7 @@ Macierz Macierz::operator + (const Macierz & M) const{
 }
 
 Macierz Macierz::operator - (const Macierz &M) const{
-  MacierzKw Wynik;
+  Macierz Wynik;
   for (int i=0; i<ROZMIAR; i++)
     Wynik [i] = tab[i]-M[i];
   return Wynik;
@@ -127,13 +128,13 @@ Wektor& Macierz::operator[] (int index){
 
 /*Operatory wczytywania i wyswietlania*/
 
-std::istream & operator >> (std::istream &strm, Macierz &M) {
+istream & operator >> (istream &strm, Macierz &M) {
   for (int i=0; i<ROZMIAR; i++)
     strm >> M[i];
   return strm;
 }
 
-std::ostream & operator << (std::ostream &strm, const Macierz &M) {
+ostream & operator << (ostream &strm, const Macierz &M) {
   for (int i=0; i<ROZMIAR; i++)
     strm << M[i] << endl;
   return strm;

@@ -2,7 +2,7 @@
 #include "Wektor.hh"
 #include "Macierz.hh"
 #include "UkladRownanLiniowych.hh"
-
+#include <fstream>
 using namespace std;
 
 int main()
@@ -10,7 +10,7 @@ int main()
   
     ifstream plik;
     plik.open("plik"); 
-    UkladRownanLiniowych   UklRown;
+    UkladRownanLiniowych UklRown;
     plik >> UklRown;
     cout << UklRown << endl;
     plik.close();

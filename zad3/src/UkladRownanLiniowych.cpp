@@ -2,10 +2,11 @@
 #include "Macierz.hh"
 #include "Wektor.hh"
 #include "rozmiar.h"
+#include <math.h>
+#include <algorithm>
 
 using namespace std;
 
-//Wektor błędu
 Wektor UkladRownanLiniowych::w_bledu() const {
   Wektor wynik;
 
@@ -14,14 +15,14 @@ Wektor UkladRownanLiniowych::w_bledu() const {
   return wynik;
 }
 
-//Dlugosc Wektora błędu
+
 double UkladRownanLiniowych::dl_bledu() const {
   double wynik = w_bledu().dlugosc();
 
   return wynik;
 }
 
-Wektor UkladRownan::Oblicz() const {
+Wektor UkladRownanLiniowych::Oblicz() const {
   Wektor wynik;
   Macierz mpom = get_A(); 
   double wyznaczniki[ROZMIAR]; 
@@ -32,14 +33,14 @@ Wektor UkladRownan::Oblicz() const {
   
   for(int i = 0; i < ROZMIAR; i++) {
     mpom = mpom.zmien_kolumne(i, wolne);
-    wyznaczniki[i] = mpom.wyznaczniki();
+    wyznaczniki[i] = mpom.wyznacznik();
     wyznaczniki[i] = wyznaczniki[i] / gl_wyznacznik; 
     mpom = get_A();
     }
   }
   else
     {
-      cerr << "Wyznacznik macierzy głównej wynosi 0. Uklad równań nie ma rozwiązania." << endl;
+      cerr << "Glowny wyznacznik wynosi 0. Uklad rownan nie ma rozwiazania." << endl;
       exit(0);
     }
   return Wektor(wyznaczniki);
@@ -47,13 +48,15 @@ Wektor UkladRownan::Oblicz() const {
 
 
 istream & operator >> (istream &strm, UkladRownanLiniowych & UklRown) {
-  Wektor wpom;
+  
   Macierz mpom;
+  Wektor wpom;
 
-  strm>> wpom;
   strm>> mpom;
+  strm>> wpom;
+  
 
-  UklRown = UkladRownanLiniowych(wpom, mpom);
+  UklRown = UkladRownanLiniowych(mpom,wpom);
   return strm;
 }
 
