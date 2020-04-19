@@ -48,15 +48,15 @@ Wektor Macierz::operator *(const Wektor &W) const {
   return Wynik;
 }
 
-Macierz Macierz::operator *(double l, const Macierz &M) {
+Macierz Macierz::operator *(const double l) const {
   Macierz Wynik;
   for (int i=0; i<ROZMIAR; i++)
-    Wynik[i] = M[i]*l;
+    Wynik[i] = tab[i]*l;
   return Wynik;
 }
 
 Macierz Macierz::transponuj() const {
-  MacierzKw Transp;
+  Macierz Transp;
   for (int i=0; i<ROZMIAR; i++)
     for (int j=0; j<ROZMIAR; j++)
       Transp[j][i] = tab[i][j];
